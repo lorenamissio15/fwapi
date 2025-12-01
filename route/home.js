@@ -1,5 +1,5 @@
-module.exports = (app) => {
-    app.get('/', (req, res) => {
-         res.render("home.ejs")
-    });
+module.exports = (app)=>{
+    app.get("/",(req,res)=>{
+        res.render("home.ejs")
+    })
 }

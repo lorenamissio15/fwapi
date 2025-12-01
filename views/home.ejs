@@ -1,69 +1,78 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Notícias - Página Inicial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">API Notícias</a>
-        </div>
-    </nav>
-    <header class="py-5 bg-primary text-white text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Bem-vindo à API de Notícias</h1>
-            <p class="lead mt-3">
-                Uma API simples, rápida e moderna para gerenciar notícias.
-            </p>
-        </div>
-    </header>
-    <main class="container my-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card shadow-sm border-0">
-                    <div class="card-body p-4">
-                        <h2 class="h4 text-center mb-3">Comece por aqui</h2>
-                        <p class="text-muted text-center">
-                            Use os endpoints abaixo para interagir com o sistema.
-                        </p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <strong>GET /noticias</strong><br>
-                                Lista todas as notícias cadastradas.
-                            </li>
-                            <li class="list-group-item">
-                                <strong>POST /noticias</strong><br>
-                                Cadastra uma nova notícia.  
-                                <small class="text-muted">Enviar JSON no corpo.</small>
-                            </li>
-                            <li class="list-group-item">
-                                <strong>PUT /noticias/:id</strong><br>
-                                Atualiza uma notícia existente.
-                            </li>
-                            <li class="list-group-item">
-                                <strong>DELETE /noticias/:id</strong><br>
-                                Remove uma notícia.
-                            </li>
-                        </ul>
-                        <div class="text-center mt-4">
-                            <a href="/noticias" class="btn btn-primary btn-lg">
-                                Ver Notícias
-                            </a>
-                        </div>
-                    </div>
-                </div>
+
+    <div class="container py-5">
+
+        <header class="text-center mb-5">
+            <h1 class="fw-bold">API de Notícias</h1>
+            <p class="text-muted">A API permite buscar, inserir, atualizar e excluir notícias armazenadas no MongoDB
+                Atlas.</p>
+        </header>
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Endpoints Disponíveis</h4>
+            </div>
+            <div class="card-body">
+
+                <!-- GETs -->
+                <h5 class="fw-bold mt-3">🔍 Buscar Notícias (GET)</h5>
+                <ul>
+                    <li><code>GET /noticias</code> — Retorna todas as notícias.</li>
+                    <li><code>GET /noticias/id/:id</code> — Retorna uma notícia específica pelo ID.</li>
+                    <li><code>GET /noticias/tiponoticia/:tipo</code> — Retorna notícias filtradas por tipo.</li>
+                </ul>
+
+                <!-- POST -->
+                <h5 class="fw-bold mt-4">📝 Inserir Notícia (POST)</h5>
+                <p><code>POST /postnoticias</code></p>
+                <p>Enviar no corpo da requisição <strong>JSON</strong>:</p>
+
+                <pre>{
+  "titulo": "Título da notícia",
+  "conteudo": "Conteúdo da notícia",
+  "tipo": "categoria"
+}</pre>
+
+                <!-- PUT -->
+                <h5 class="fw-bold mt-4">✏ Atualizar Notícia (PUT)</h5>
+                <p><code>PUT /putnoticias</code></p>
+                <p>Enviar no corpo da requisição <strong>JSON</strong>:</p>
+
+                <pre>{
+  "_id": "ID da notícia",
+  "titulo": "Novo título",
+  "conteudo": "Novo conteúdo",
+  "tipo": "nova categoria"
+}</pre>
+
+                <!-- DELETE -->
+                <h5 class="fw-bold mt-4">🗑 Deletar Notícia (DELETE)</h5>
+                <p><code>DELETE /delnoticas</code></p>
+                <p>Enviar no corpo da requisição <strong>JSON</strong>:</p>
+
+                <pre>{
+  "_id": "ID da notícia"
+}</pre>
+
             </div>
         </div>
-    </main>
-    <footer class="text-center py-3 text-muted small">
-        API Notícias © 2025
-    </footer>
+
+        <footer class="text-center text-muted mt-4">
+            <p>API desenvolvida com Node.js, Express e MongoDB Atlas.</p>
+        </footer>
+
+    </div>
+
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"  crossorigin="anonymous"></script>
 
 </html>
