@@ -6,7 +6,7 @@ const port = 3000
 app.set("view engine", "ejs")
 app.set("views", "./views")
 
-const bodyParser = require("body-parser");
+app.use(bodyParser.json());
 /* estas linhas são para leitura de de body.json */
 app.use(express.json());
 app.use(express.urlencoded());
