@@ -12,6 +12,7 @@ module.exports = (app) => {
              .updateOne({ _id: _id },
                 {$set:{titulonoticia:titulonoticia,conteudonoticia:conteudonoticia,tiponoticia:tiponoticia}
               })
+              console.log(resultado)
             if (!resultado.modifiedCount) {
                 throw new Error("A notícia não foi atualizada — id não encontrado.");
             } else { res.status(200).send("Notícia Atualizada") }
