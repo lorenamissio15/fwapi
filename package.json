@@ -1,6 +1,9 @@
 {
   "name": "express",
   "dependencies": {
+    "body-parser": "^2.2.1",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
     "ejs": "^3.1.10",
     "express": "5.1.0",
     "mongodb": "^7.0.0"
