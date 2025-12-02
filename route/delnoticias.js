@@ -8,10 +8,10 @@ module.exports = (app) => {
                 .collection('noticias')
                 .deleteOne({ _id: _id })
             if (!resultado.deletedCount) {
-                throw new Error("Nenhuma notícia foi apagada — id não encontrado.");
-            } else { res.status(200).send("Notícia Apagada") }
+                throw new Error();
+            } else { res.status(200).json({ status: 1 }) }
         } catch (error) {
-            res.status(400).send("" + error)
+            res.status(400).json({ status: 0 })
         }
     })
 }

@@ -7,15 +7,18 @@ module.exports = (app) => {
             await app.DBClient.connect(); //aqui o erro
             const resultado = await app.DBClient.db('portalnoticias')
                 .collection('noticias')
-                .insertOne({ 
+                .insertOne({
                     titulonoticia: titulonoticia,
                     conteudonoticia: conteudonoticia,
                     tiponoticia: tiponoticia,
                     datahoracadastro: new Date()
                 })
-            res.send("Notícia Gravada com sucesso!")
+            if (!resultado.acknowledged) {
+                res.json({ status: 0 })
+            }
+            res.json({ status: 1 })
         } catch (error) {
-            res.send("Não foi possível gravar a notícia")
+            res.json({ status: 0 })
         }
     })
 }
